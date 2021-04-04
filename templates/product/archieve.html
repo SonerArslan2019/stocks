@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>{{ year }} Yili {{ month }} . ay ++++ Urun Archieve sayfasi</h1><br><br>
+{% if products %}
+
+    <table>
+        {% for product in products %}
+            <tr>
+                <td>Urun Icerigi :</td>
+                <td>{{ product.content }}</td>
+                <td><a href="{% url 'product-detail' product.id %}">Urun Adi :</a> </td>
+                <td>{{ product.name | upper }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+
+    <h1>Urun bulunamadi</h1>
+    <h2>2021 yili 4. ay arsivleri icin <a href="{% url 'product-archieve' 2021 4 %}">TIKLAYINIZ !</a> </h2>
+
+
+{% endif %}
+</body>
+</html>
