@@ -1,5 +1,5 @@
 from django.db import models
-# from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 
 
 
@@ -11,6 +11,7 @@ class Product(models.Model):
     stock_count = models.PositiveSmallIntegerField(verbose_name="stok_adeti")
     price = models.DecimalField(verbose_name="Urun Fiyati", decimal_places=2, max_digits=10)
     slug = models.SlugField(unique=True)
+    author = models.ForeignKey(User, verbose_name='Sahip', on_delete=models.CASCADE)
 
 
     class Meta:
