@@ -1,22 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'layout/base.html' %}
+
+{% block title %}
+    Urun Listeleme
+{% endblock %}
+
+{% block content %}
+
 Urun LIST sayfasi
-    <table>
-        {% for product in products %}
-            <tr>
-                <td>Urun Icerigi :</td>
-                <td>{{ product.content }}</td>
-                <td>Urun Adi :</td>
-                <td>{{ product.name | upper }}</td>
-                <td>Stok Miktari:</td>
-                <td>{{ product.stock_count }}</td>
-            </tr>
-        {% endfor %}
-    </table>
-</body>
-</html>
+<table>
+    {% for product in products %}
+        <tr>
+            <td>Urun Icerigi :</td>
+            <td>{{ product.content }}</td>
+            <td>Urun Adi :</td>
+            <td>{{ product.name | upper }}</td>
+            <td>Stok Miktari:</td>
+            <td>{{ product.stock_count }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

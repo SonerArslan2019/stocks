@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'layout/base.html' %}
+
+{% block title %}
+    Urun Detayi
+{% endblock %}
+
+{% block content %}
 
 <h1>Urun  detay sayfasi</h1>
 <br><br>
@@ -14,5 +14,4 @@ Urun Aciklamasi : <br><br>
 <br><br>
 Fiyati : {{ product_detail.price }}
 
-</body>
-</html>
+{% endblock %}
