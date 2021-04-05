@@ -8,16 +8,27 @@
     <div class="jumbotron">
         <div class="container">
             <h1 class="display-3">Uye Girisi</h1>
-            <p>Hos geldiniz,  asagidaki formu kullanarak giris yapabilirsiniz..</p>
+            <p>
+                {% if user.is_authenticated %}
+                    Merhaba {{ user.username }}, Giris yaptiniz, tekrar giremezsiniz.
+                {% else %}
+                    Hosgeldiniz asagidaki formdan giris yapiniz..
+                {% endif %}
+            </p>
             <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
         </div>
     </div>
 {% endblock %}
 
 {% block content %}
-    <form method="post">
+    {% if user.is_authenticated %}
+        Merhaba {{ user.username }}, cikis yapmak icin <a href="{% url 'logout' %}">Tiklayiniz</a>
+    {% else %}
+        <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">GIRIS</button>
     </form>
+    {% endif %}
+
 {% endblock %}

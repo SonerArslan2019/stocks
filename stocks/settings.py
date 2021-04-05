@@ -118,3 +118,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 LOGIN_REDIRECT_URL = '/learning/product'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
