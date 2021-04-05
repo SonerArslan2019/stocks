@@ -11,7 +11,7 @@ def product(request, pk=None):
     content = {
         'product_detail': queryset
     }
-    return render(request=request, template_name='product/detail.html', context=content)
+    return render(request=request, template_name='learning/product/detail.html', context=content)
 
 
 def products(request):
@@ -19,7 +19,7 @@ def products(request):
     content = {
         'products': queryset
     }
-    return render(request=request, template_name='product/list.html', context=content)
+    return render(request=request, template_name='learning/product/list.html', context=content)
 
 
 def product_archieve(request, year=None, month=None):
@@ -30,7 +30,7 @@ def product_archieve(request, year=None, month=None):
         'month': month,
         'products': queryset
     }
-    return render(request=request, template_name='product/archieve.html', context=content)
+    return render(request=request, template_name='learning/product/archieve.html', context=content)
 
 
 class ProductView(View):
@@ -40,7 +40,7 @@ class ProductView(View):
         content = {
             'products': product_list
         }
-        return render(request=request, template_name='product/list.html', context=content)
+        return render(request=request, template_name='learning/product/list.html', context=content)
 
     def post(self, request):
         pass
@@ -48,12 +48,12 @@ class ProductView(View):
 
 class ProductListView(ListView):
     model = Product
-    template_name = 'product/list.html'
+    template_name = 'learning/product/list.html'
     context_object_name = 'products'
     queryset = Product.objects.all()[:2]  # kac tane urun gostermesini istersek ona gore rakam veririz
 
 
 class ProductDetailView(DetailView):
     model = Product
-    template_name = 'product/detail.html'
+    template_name = 'learning/product/detail.html'
     context_object_name = 'product_detail'
