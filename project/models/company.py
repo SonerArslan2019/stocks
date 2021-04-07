@@ -13,7 +13,7 @@ class Company(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Yetkili')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Kayit Tarihi')
     active = models.BooleanField(default=True, verbose_name='Aktif')
-    slug = models.CharField(max_length=255, verbose_name='Slug')
+    slug = models.CharField(max_length=255, verbose_name='Slug', editable=False)
 
     class Meta:
         abstract = True  # database de alan olusmayacak ABSTRACT
@@ -30,4 +30,4 @@ class Company(models.Model):
                     break
                 self.slug = '%s-%d' % (self.slug, slug_id)
 
-        super(self.__class__, self).save()
+        super(Company, self).save()
