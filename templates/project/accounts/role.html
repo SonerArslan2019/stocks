@@ -5,11 +5,14 @@
         {% if distributors %}
             {% for distributor in distributors %}
                 <div class="card">
-                    <div class="card-body"><h5 class="card-title">{{ distributor.name }}</h5></div>
+                    <div class="card-body">
+                        <h5 class="card-title"><a
+                                href="{% url 'distributor-home' distributor.pk %}">{{ distributor.name }}</a></h5>
+                    </div>
                     <div class="card-footer">
                         <small class="text-muted">
                             {% if distributor.author_id == request.user.id %}
-                                Distributor Yoneticisi :
+                                Distributor Yoneticisi
                             {% else %}
                                 Distributor Personeli :
                             {% endif %}
@@ -21,7 +24,9 @@
         {% if dealers %}
             {% for dealer in dealers %}
                 <div class="card">
-                    <div class="card-body"><h5 class="card-title">{{ dealer.name }}</h5></div>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="{% url 'dealer-home' dealer.pk %}">{{ dealer.name }}</a></h5>
+                    </div>
                     <div class="card-footer">
                         <small class="text-muted">
                             {% if dealer.author_id == request.user.id %}
